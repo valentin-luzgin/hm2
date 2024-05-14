@@ -1,0 +1,1 @@
+def divided_into_type_and_number:

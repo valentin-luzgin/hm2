@@ -1,4 +1,5 @@
-from src.masks import masked_account_number, masked_card_number
+from src.masks import masked_cards_and_accounts
+from src.widget import date_conversion
 
-print(masked_card_number(str(7000792289606361)))
-print(masked_account_number(str(73654108430135874305)))
+print(masked_cards_and_accounts('Счет 73654108430135874305'))
+print(date_conversion('2018-07-11T02:26:18.671407'))

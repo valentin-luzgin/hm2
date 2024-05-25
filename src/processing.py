@@ -7,6 +7,6 @@ def return_dict_containing_key_passed_to_function(list_of_states: list, state: s
     return new_list
 
 
-def sort_dicts_by_date(data: list, reverse: bool = False) -> list:
+def sort_dicts_by_date(data: list, reverse: bool = True) -> list:
     """возвращает отсортированный по времени список"""
     return sorted(data, key=lambda x: x["date"], reverse=reverse)

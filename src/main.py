@@ -28,4 +28,4 @@ list_of_states = [
 ]
 
 print(return_dict_containing_key_passed_to_function(list_of_states, state="EXECUTED"))
-print(sort_dicts_by_date(list_of_states, reverse=False))
+print(sort_dicts_by_date(list_of_states, reverse=True))

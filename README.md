@@ -17,6 +17,11 @@ git clone https://github.com/valentin-luzgin/valentin_luzgin_hm.git
 3. Передайте список операций в переменную list_of_states для сортировки по статусу (значение state в функции 
 return_dict_containing_key_passed_to_function) и по времени (значение reverse в функции sort_dicts_by_date) 
 
+## Тестирование:
+
+Модули тестируются в отдельных тестовых файлах, расположенных в пакете tests
+
+
 ## Лицензия:
 
 Проект распространяется под [лицензией MIT](LICENSE).

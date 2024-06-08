@@ -1,5 +1,6 @@
 def return_dict_containing_key_passed_to_function(list_of_states: list, state: str = "EXECUTED") -> list:
-    """возвращает новый список, содержащий только те словари, у которых ключ state содержит переданное в функцию значение."""
+    """возвращает новый список, содержащий только те словари, у которых ключ state содержит переданное в функцию
+     значение."""
     new_list = []
     for i in list_of_states:
         if i["state"] == state:

@@ -1,4 +1,5 @@
 import pytest
+
 from src.widget import masked_cards_and_accounts
 
 

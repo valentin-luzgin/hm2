@@ -1,6 +1,6 @@
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
-from src.widget import masked_cards_and_accounts, date_conversion
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.processing import return_dict_containing_key_passed_to_function, sort_dicts_by_date
+from src.widget import date_conversion, masked_cards_and_accounts
 
 bank_list = [
     "Maestro 1596837868705199",
@@ -90,5 +90,5 @@ descriptions = transaction_descriptions(transactions)
 for _ in range(5):
     print(next(descriptions))
 
-for card_number in card_number_generator(1, 5):
+for card_number in card_number_generator(1, 2):
     print(card_number)

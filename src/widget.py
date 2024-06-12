@@ -1,4 +1,4 @@
-from src.masks import masked_card_number, masked_account_number
+from src.masks import masked_account_number, masked_card_number
 
 
 def masked_cards_and_accounts(splited_str: str) -> str:

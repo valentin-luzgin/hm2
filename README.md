@@ -14,8 +14,13 @@ git clone https://github.com/valentin-luzgin/valentin_luzgin_hm.git
 
 1. Передайте номера карт и счетов в переменную bank_list, чтобы получить маскированный номер
 2. Передайте дату в функцию date_conversion для преобразования из формата ГГГГ-ММ-ДД в формат ДД-ММ-ГГГГ
-3. Передайте список операций в переменную list_of_states для сортировки по статусу (значение state в функции 
-return_dict_containing_key_passed_to_function) и по времени (значение reverse в функции sort_dicts_by_date) 
+3. Передайте список операций в переменную list_of_states для сортировки по статусу (аргумент state в функции 
+return_dict_containing_key_passed_to_function) и по времени (аргумент reverse в функции sort_dicts_by_date)
+4. Передайте код валюты в аргумент currency функции filter_by_currency для вывода id операций
+5. Функция transaction_descriptions выводит описание операций из переданного в переменную transactions списка операций 
+6. Задайте диапазон для генерации номеров карт через аргументы функции card_number_generator, где start - начало диапозона,
+а end - конец диапазона
+
 
 ## Тестирование:
 

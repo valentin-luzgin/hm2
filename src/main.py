@@ -1,6 +1,8 @@
 from src.decorators import log
+from src.external_api import get_transaction_amount_in_rubles
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.processing import return_dict_containing_key_passed_to_function, sort_dicts_by_date
+from src.utils import operations_to_list_of_dicts
 from src.widget import date_conversion, masked_cards_and_accounts
 
 bank_list = [
@@ -96,3 +98,19 @@ def my_function(x, y):
 
 
 my_function(1, 2)
+
+print(operations_to_list_of_dicts("../data/operations.json"))
+
+print(
+    get_transaction_amount_in_rubles(
+        {
+            "id": 41428829,
+            "state": "EXECUTED",
+            "date": "2019-07-03T18:35:29.512364",
+            "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+            "description": "Перевод организации",
+            "from": "MasterCard 7158300734726758",
+            "to": "Счет 35383033474447895560",
+        }
+    )
+)

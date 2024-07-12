@@ -2,7 +2,7 @@ from src.decorators import log
 from src.external_api import get_transaction_amount_in_rubles
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.processing import return_dict_containing_key_passed_to_function, sort_dicts_by_date
-from src.utils import operations_to_list_of_dicts
+from src.utils import csv_to_list_of_dicts, operations_to_list_of_dicts, xlsx_to_list_of_dicts
 from src.widget import date_conversion, masked_cards_and_accounts
 
 bank_list = [
@@ -114,3 +114,6 @@ print(
         }
     )
 )
+
+print(csv_to_list_of_dicts("../data/transactions.csv"))
+print(xlsx_to_list_of_dicts("../data/transactions_excel.xlsx"))

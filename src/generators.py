@@ -3,7 +3,7 @@ from typing import Generator
 
 
 def filter_by_currency(transactions: list, currency: str) -> Generator[list, int, None]:
-    """выводит id операций по переданному в функцию коду валюты"""
+    """сортирует операции по переданному в функцию коду валюты"""
     for transaction in transactions:
         if transaction["operationAmount"]["currency"]["code"] == currency:
             yield transaction

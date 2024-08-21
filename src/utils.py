@@ -23,8 +23,11 @@ def operations_to_list_of_dicts(path: str) -> list:
                 data = json.load(f)
                 if isinstance(data, list):
                     for i in data:
-                        utils_logger.info("Добавлен словарь")
-                        list_of_dicts.append(i)
+                        if i == {}:
+                            continue
+                        else:
+                            utils_logger.info("Добавлен словарь")
+                            list_of_dicts.append(i)
                     return list_of_dicts
                 else:
                     utils_logger.warning("JSON-файл не найден")
@@ -53,5 +56,9 @@ def csv_to_list_of_dicts(file: str) -> list[dict]:
 
 def xlsx_to_list_of_dicts(file: str) -> list[dict]:
     """принимает на вход путь до xlsx-файла и возвращает список словарей с данными о финансовых транзакциях"""
-    list_of_dicts = pd.read_excel(file).to_json(orient="index")
-    return json.loads(list_of_dicts)
+    list_of_dicts = []
+    df = pd.read_excel(file)
+    for index, row in df.iterrows():
+        if not all(row.isnull()):
+            list_of_dicts.append(row.to_dict())
+    return list_of_dicts

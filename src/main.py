@@ -104,21 +104,30 @@ def main() -> None:
             )
         else:
             final_list_of_transactions = transactions_currency
+    transactions_count = len([item for item in final_list_of_transactions if item != 0])
 
     if not final_list_of_transactions:
         print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
     else:
-        print("Распечатываю итоговый список транзакций...\n")
-        print(f"Всего банковских операций в выборке: {len(final_list_of_transactions)}\n")
+        print(
+            f"Распечатываю итоговый список транзакций...\nВсего банковских операций в выборке: {transactions_count}\n"
+        )
         for i in final_list_of_transactions:
             if i["description"] == "Открытие вклада":
-                print(f"{date_conversion(i['date'])} {i['description']}")
-                print(f"{masked_cards_and_accounts(i['to'])}")
-                print(f"Сумма: {i['operationAmount']['amount']} {i['operationAmount']['currency']['name']}\n")
+                print(f"{date_conversion(i['date'])} {i['description']}\n" f"{masked_cards_and_accounts(i['to'])}")
+                try:
+                    print(f"Сумма: {i['operationAmount']['amount']} {i['operationAmount']['currency']['code']}\n")
+                except KeyError:
+                    print(f"Сумма: {i.get('amount')} {i.get('currency_code')}\n")
             else:
-                print(f"{date_conversion(i['date'])} {i['description']}")
-                print(f"{masked_cards_and_accounts(i['from'])} -> {masked_cards_and_accounts(i['to'])}")
-                print(f"Сумма: {i['operationAmount']['amount']} {i['operationAmount']['currency']['name']}\n")
+                print(
+                    f"{date_conversion(i['date'])} {i['description']}\n"
+                    f"{masked_cards_and_accounts(i['from'])} -> {masked_cards_and_accounts(i['to'])}"
+                )
+                try:
+                    print(f"Сумма: {i['operationAmount']['amount']} {i['operationAmount']['currency']['code']}\n")
+                except KeyError:
+                    print(f"Сумма: {i.get('amount')} {i.get('currency_code')}\n")
 
 
 if __name__ == "__main__":
